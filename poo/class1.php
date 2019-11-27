@@ -5,7 +5,7 @@ class Contact{
     public $nombre;
     public $apellidos;
     public $edad;
-    //Creamos el constructor
+    //Creamos el constructor Instanciamos 
     public function __construct($nombre, $apellidos, $edad)
     {
         $this->nombre= $nombre;
@@ -42,7 +42,7 @@ class Contact{
         return $info;
     
         }
-        public function __destruct()
+    public function __destruct()
         {
             echo "hola ";
         }

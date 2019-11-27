@@ -4,7 +4,7 @@ class car{
     public $modelo;
     public $color;
     public $velocidad;
-//metodos
+//Creamos el constructor Instanciamos 
 public function __construct($modelo, $color, $velocidad = 0){
     $this->modelo = $modelo;
     $this->color = $color;
@@ -34,7 +34,7 @@ public function getVelocidad(){
     return $this->velocidad;
 }
  
-public function mostrarInfo(){
+public function info(){
      
     // Llamamos a otros métodos
     $info = "<h1>Información del coche:</h1>";
@@ -52,10 +52,10 @@ public function __destruct()
 $coche = new Car("BMW VICTOR", "ROJO", 100);
  
 // Mostramos la información del primer coche
-echo $coche->mostrarInfo();
+echo $coche->info();
  
 $coche2 = new Car("SEAT 500", "VERDE", 60);
  
 // Mostramos la información del segundo coche
-echo $coche2->mostrarInfo();
+echo $coche2->info();
  ?>
