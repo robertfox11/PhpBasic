@@ -1,20 +1,4 @@
 <?php
-//declaramos 
-class Persona{
-    //atributos
-    public $nombre = "pedro";
-
-    public function hablar($mensaje){
-        echo $mensaje;
-    }
-}
-
-$persona = new Persona();
-echo $persona -> nombre.'<br>';
-// accedemos al metodo de la clase persona
-$persona -> hablar("hola como estas $persona->nombre");
-
-
 class coche{
     //atributos
     public $modelo;
@@ -66,7 +50,7 @@ $coche = new Coche("BMW VICTOR", "ROJO", 100);
 // Mostramos la información del primer coche
 echo $coche->mostrarInfo();
  
-$coche2 = new Coche("SEAT 500", "VERDE");
+$coche2 = new Coche("SEAT 500", "VERDE", 60);
  
 // Mostramos la información del segundo coche
 echo $coche2->mostrarInfo();
@@ -92,26 +76,5 @@ class alimento {
         return $this->color;
     }
  
- } // fin de la clase Verdura
-
- 
-// class MyDestructableClass {
-//     function __construct() {
-//         print "En el constructor\n";
-//         $this->name = "MyDestructableClass";
-//     }
- 
-//     function __destruct() {
-//         print "Destruyendo " . $this->name . "\n";
-//     }
-//  }
- 
-//  $obj = new MyDestructableClass();
- 
-
-// class camiseta{
-//     public $color ="verde";
-//     public $modelo ="manga larga";
-//     public $marca ="adidas";
-//     public $precio = 20;
-// }
+ }
+ ?>
