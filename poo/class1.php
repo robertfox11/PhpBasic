@@ -2,33 +2,57 @@
 //declaramos 
 class Contact{
     //atributos
-    public $nombre= array();
-    public $apellidos = array();
-    public $edad = array();
-// Metodo Guardar datos
-    public function save($nombre, $apellidos, $edad){
-        // this hacemos referencia al nombre
-        $this->nombre[] = $nombre;
-        $this->apellidos[] = $apellidos;
-        $this->edad[] = $edad;        
+    public $nombre;
+    public $apellidos;
+    public $edad;
+    //Creamos el constructor
+    public function __construct($nombre, $apellidos, $edad)
+    {
+        $this->nombre= $nombre;
+        $this->apellidos= $apellidos;
+        $this->edad= $edad;
     }
-    // MEtodo mostrar datos
-    public function toshow(){
-        //llamamos al nombre
-        for ($i=0; $i < count($this->nombre); $i++) { 
-           Contact::format($this->nombre[$i],$this->apellidos[$i],$this->edad[$i]);
+    //metodos
+    public function getNombre(){
+        return $this->nombre;
+    }
+    public function setNombre($nombre){
+        return $this->$nombre;
+    }
+    public function getApellidos(){
+        return $this->apellidos;
+    }
+    public function setApellidos($apellidos){
+        return $this->$apellidos;
+    }
+    public function getEdad(){
+        return $this->edad;
+    }
+    public function setEdad($edad){
+        return $this->$edad;
+    }
+
+    //Verificacion de datos
+    public function info(){
+        $info = "<h1>Información del Contacto:</h1>";
+        
+        $info.= "<br/> Nombre: ".$this->getNombre();
+        $info.= "<br/> Apellidos: ".$this->getApellidos();
+        $info.= "<br/> Edad: ".$this->getEdad();
+        return $info;
+    
         }
-    }
-    //formatear datos
-    public function format($nombre, $apellidos, $edad){
-    echo "Nombre: " .$nombre. " | apellidos: " .$apellidos. " |Edad:  " .$edad."<br>"; 
+        public function __destruct()
+        {
+            echo "hola ";
         }
 }
-$contact = new Contact();
-echo "<h1>Información del Contacto:</h1>";
-$contact->save("Pepe","Perez", 22);
-$contact->save("Paco","Lopez", 23);
-// accedemos al metodo de al objeto contacto
-$contact->toshow();
+$contact = new Contact("Pepe","Perez",2);
 
- 
+echo $contact->info();
+$contact = new Contact("Pepa","Lopez",3);
+echo $contact->info();
+
+
+
+?>

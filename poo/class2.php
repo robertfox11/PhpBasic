@@ -1,5 +1,5 @@
 <?php
-class coche{
+class car{
     //atributos
     public $modelo;
     public $color;
@@ -43,38 +43,19 @@ public function mostrarInfo(){
     $info.= "<br/> Velocidad: ".$this->getVelocidad();
      
     return $info;
+    }
+public function __destruct()
+        {
+            echo "hola ";
+        }
 }
-}
-$coche = new Coche("BMW VICTOR", "ROJO", 100);
+$coche = new Car("BMW VICTOR", "ROJO", 100);
  
 // Mostramos la información del primer coche
 echo $coche->mostrarInfo();
  
-$coche2 = new Coche("SEAT 500", "VERDE", 60);
+$coche2 = new Car("SEAT 500", "VERDE", 60);
  
 // Mostramos la información del segundo coche
 echo $coche2->mostrarInfo();
-
-class alimento {
-
-    var $comestible;
-    var $color;
- 
-    function Verdura($comestible, $color="verde")
-    {
-        $this->comestible = $comestible;
-        $this->color = $color;
-    }
- 
-    function es_comestible()
-    {
-        return $this->comestible;
-    }
- 
-    function qué_color()
-    {
-        return $this->color;
-    }
- 
- }
  ?>
