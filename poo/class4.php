@@ -1,37 +1,45 @@
 <?php
 //declaramos 
-class Fruit{
+class Book{
     //atributos
-    public $name;
-    public $color;
-    
+    public $title;
+    public $author;
+    public $copy;
     //Creamos el constructor Instanciamos 
-    public function __construct($name, $color)
+    public function __construct($title, $author, $copy)
     {
-        $this->name= $name;
-        $this->color= $color;
+        $this->title= $title;
+        $this->author= $author;
+        $this->copy =$copy;
         
     }
     //metodos
-    public function getName(){
-        return $this->name;
+    public function getTitle(){
+        return $this->title;
     }
-    public function setName($name){
-        return $this->$name;
+    public function setName($title){
+        return $this->$title;
     }
-    public function getColor(){
-        return $this->color;
+    public function getAuthor(){
+        return $this->author;
     }
-    public function setColor($color){
-        return $this->$color;
+    public function setColor($author){
+        return $this->$author;
+    }
+    public function getCopy(){
+        return $this->copy;
+    }
+    public function setCopy($copy){
+        return $this->$copy;
     }
 
     //Verificacion de datos
     public function info(){
-        $info = "<h1>Información de la Fruit:</h1>";
+        $info = "<h1>Información del libro:</h1>";
         
-        $info.= "<br/> Nombre: ".$this->getName();
-        $info.= "<br/> Color: ".$this->getColor();
+        $info.= "<br/> Nombre: ".$this->getTitle();
+        $info.= "<br/> Autor: ".$this->getAuthor();
+        $info.= "<br/> Copy: ".$this->getCopy();
         
         return $info;
     
@@ -39,7 +47,7 @@ class Fruit{
         //metodo destructor
     public function __destruct()
         {
-            echo "hola soy el destructor";
+            echo "hola soy el destructor ";
         }
         //funcion para convertir objeto a string
     public function __toString()
@@ -47,7 +55,7 @@ class Fruit{
         try 
         {
             
-            return (string) $this->name. " ".$this->color;
+            return (string) $this->title. " ".$this->author."".$this->copy;
         } 
         catch (Exception $exception) 
         {
@@ -57,16 +65,16 @@ class Fruit{
     
 }
 // Instanciamos 
-$fruit = new Fruit("Pear", "green");
+$book = new Book("Julio Verne", "Viaje a la Luna", 20000);
 // echo $contact;
-echo $fruit->info()."<br>";
+echo $book->info()."<br>";
 //convertimos el objeto a string
-$str = "Convertimos objeto a String =>".$fruit->__toString()."<br>";
+$str = "Convertimos objeto a String =>".$book->__toString()."<br>";
 echo $str;
-//clonacion
-$clonFruit = clone $fruit;
-echo "<h1>"."Soy la clonacion ".$clonFruit->info()."<br>";
+// //clonacion
+$clonBook = clone $book;
+echo "<h1>"."Soy la clonacion ".$clonBook->info()."<br>";
 
-$fruit2 = new Fruit("Apple", "red");
-echo $fruit2->info()."<br>";
+$book2 = new Book("Julio Verne", "20.000 Leguas de Viaje Submarino", 40000);
+echo $book2->info()."<br>";
 ?>
