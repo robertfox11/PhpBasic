@@ -22,14 +22,6 @@ public function setColor($color){
     $this->color = $color;
 }
  
-public function acelerar(){
-    $this->velocidad++;
-}
- 
-public function frenar(){
-    $this->velocidad--;
-}
- 
 public function getVelocidad(){
     return $this->velocidad;
 }
@@ -46,16 +38,34 @@ public function info(){
     }
 public function __destruct()
         {
-            echo "hola ";
+            echo "hola soy el destructor";
+        }
+        public function __toString()
+        {
+            try 
+            {
+                
+                return (string) $this->modelo. " ".$this->color. " ".$this->velocidad ;
+            } 
+            catch (Exception $exception) 
+            {
+                return '';
+            }
         }
 }
 $coche = new Car("BMW VICTOR", "ROJO", 100);
  
 // Mostramos la información del primer coche
-echo $coche->info();
+echo $coche->info()."<br>";
+//convertimos el objeto a string
+$str = "Convertimos objeto a String =>".$coche->__toString()."<br>";
+echo $str;
  
+//clonacion
+$clonCoche = clone $coche;
+echo "<h1>"."Soy la clonacion ".$clonCoche->info()."<br>";
+
 $coche2 = new Car("SEAT 500", "VERDE", 60);
- 
 // Mostramos la información del segundo coche
-echo $coche2->info();
+echo $coche2->info()."<br>";
  ?>

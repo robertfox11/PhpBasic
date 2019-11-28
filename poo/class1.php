@@ -2,57 +2,77 @@
 //declaramos 
 class Contact{
     //atributos
-    public $nombre;
-    public $apellidos;
-    public $edad;
+    public $name;
+    public $surname;
+    public $year;
     //Creamos el constructor Instanciamos 
-    public function __construct($nombre, $apellidos, $edad)
+    public function __construct($name, $surname, $year)
     {
-        $this->nombre= $nombre;
-        $this->apellidos= $apellidos;
-        $this->edad= $edad;
+        $this->name= $name;
+        $this->surname= $surname;
+        $this->year= $year;
     }
     //metodos
-    public function getNombre(){
-        return $this->nombre;
+    public function getName(){
+        return $this->name;
     }
-    public function setNombre($nombre){
-        return $this->$nombre;
+    public function setName($name){
+        return $this->$name;
     }
-    public function getApellidos(){
-        return $this->apellidos;
+    public function getSurname(){
+        return $this->surname;
     }
-    public function setApellidos($apellidos){
-        return $this->$apellidos;
+    public function setApellidos($surname){
+        return $this->$surname;
     }
-    public function getEdad(){
-        return $this->edad;
+    public function getYear(){
+        return $this->year;
     }
-    public function setEdad($edad){
-        return $this->$edad;
+    public function setEdad($year){
+        return $this->$year;
     }
 
     //Verificacion de datos
     public function info(){
         $info = "<h1>Información del Contacto:</h1>";
         
-        $info.= "<br/> Nombre: ".$this->getNombre();
-        $info.= "<br/> Apellidos: ".$this->getApellidos();
-        $info.= "<br/> Edad: ".$this->getEdad();
+        $info.= "<br/> Nombre: ".$this->getName();
+        $info.= "<br/> Apellidos: ".$this->getSurname();
+        $info.= "<br/> Edad: ".$this->getYear();
         return $info;
     
         }
+        //metodo destructor
     public function __destruct()
         {
-            echo "hola ";
+            echo "hola soy el destructor";
         }
+        //funcion para convertir objeto a string
+    public function __toString()
+    {
+        try 
+        {
+            
+            return (string) $this->surname. " ".$this->name. " ".$this->year ;
+        } 
+        catch (Exception $exception) 
+        {
+            return '';
+        }
+    }
+    
 }
+// Instanciamos 
 $contact = new Contact("Pepe","Perez",2);
+// echo $contact;
+echo $contact->info()."<br>";
+//convertimos el objeto a string
+$str = "Convertimos objeto a String =>".$contact->__toString()."<br>";
+echo $str;
+//clonacion
+$clonContact = clone $contact;
+echo "<h1>"."Soy la clonacion ".$clonContact->info()."<br>";
 
-echo $contact->info();
-$contact = new Contact("Pepa","Lopez",3);
-echo $contact->info();
-
-
-
+$contact2 = new Contact("Pepa","Lopez",3);
+echo $contact2->info()."<br>";
 ?>
